@@ -63,12 +63,13 @@ async def translate(translate_input: TranslateInput) -> List[TranslatedText]:
 async def classify_cat(cat_image: ImageToClassify):
     try:
         base64_src = cat_image.src
-        im = Image.open(BytesIO(base64.b64decode(re.sub('^data:image/.+;base64,', '', base64_src))))
+        im = Image.open(BytesIO(base64.b64decode(re.sub('^data:image/.+;base64,', '', base64_src)))).convert('RGB')
         im_transformed = transform(im)
         res = get_pred(cls_model, im_transformed)
         print(res)
         return {'is_cat': res == 'cat'}
-    except:
+    except(Exception) as exc:
+        print(exc)
         raise HTTPException(status_code=400, detail="Якась бісова помилка")
 
 

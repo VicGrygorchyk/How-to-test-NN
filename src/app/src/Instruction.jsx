@@ -22,7 +22,10 @@ export class Instruction extends React.Component {
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (e) => {
-        this.setState({ image: e.target.result });
+        this.setState({
+          image: e.target.result,
+          isCat: 'Тут з\'явиться результат',
+        });
       };
       reader.readAsDataURL(event.target.files[0]);
     }
