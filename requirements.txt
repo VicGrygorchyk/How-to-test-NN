@@ -23,9 +23,13 @@ datasets==2.6.1
 evaluate==0.3.0
 sacrebleu==2.3.1
 translate_toolkit==3.7.4
-
+pandas==1.5.2
 sentencepiece==0.1.97
 sacremoses==0.0.53
+torch==1.13.0
+torchvision==0.14.0
+matplotlib==3.6.2
+torch_lr_finder==0.2.1
 
 fastapi==0.85.1
 pydantic==1.10.2
