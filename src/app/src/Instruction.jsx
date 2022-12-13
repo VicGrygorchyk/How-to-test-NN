@@ -22,7 +22,10 @@ export class Instruction extends React.Component {
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = (e) => {
-        this.setState({ image: e.target.result });
+        this.setState({
+          image: e.target.result,
+          isCat: 'Тут з\'явиться результат',
+        });
       };
       reader.readAsDataURL(event.target.files[0]);
     }
@@ -34,11 +37,12 @@ export class Instruction extends React.Component {
       const body = {
           src: this.state.image,
       }
-      const isCat = await this.apiClient.classifyCat(body).is_cat;
+      const resp = await this.apiClient.classifyCat(body);
+      console.log('=== isCat ' + resp);
 
       this.setState(state => ({
-        image: catPlaceholder,
-        isCat: isCat ? 'Це кіт!': 'Не схоже на кота!',
+        image: state.image,
+        isCat: resp.is_cat ? 'Це кіт!': 'Не схоже на кота!',
       }));
     } catch (err) {
       console.log(err);
