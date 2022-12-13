@@ -30,6 +30,10 @@ torch==1.13.0
 torchvision==0.14.0
 matplotlib==3.6.2
 torch_lr_finder==0.2.1
+shap
+seaborn
+captum
+foolbox
 
 fastapi==0.85.1
 pydantic==1.10.2
