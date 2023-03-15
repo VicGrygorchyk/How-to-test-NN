@@ -167,6 +167,4 @@ models/saved_ukr/*
 
 # node.js
 **/node_modules/*
-assets/catsdogs
-assets/*.jpg
-assets/*.gif
+assets/*
